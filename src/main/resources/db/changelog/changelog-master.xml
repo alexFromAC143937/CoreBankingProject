@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+    <preConditions>
+        <dbms type="mysql"/>
+    </preConditions>
+
+    <changeSet id="0" author="babaikin oleksii">
+        <tagDatabase tag="dbbank"/>
+    </changeSet>
+
+    <include file="v-1.0.0/changelog-v.1.0.0.xml" relativeToChangelogFile="true"/>
+    <changeSet id="10000" author="babaikin oleksii">
+        <tagDatabase tag="v.1.0.0"/>
+    </changeSet>
+    <include file="v-1.0.1/changelog-v.1.0.1.xml" relativeToChangelogFile="true"/>
+    <changeSet id="10100" author="babaikin oleksii">
+        <tagDatabase tag="v.1.0.1"/>
+    </changeSet>
+
+</databaseChangeLog>
