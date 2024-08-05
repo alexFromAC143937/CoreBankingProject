@@ -1,8 +1,9 @@
 package com.bank.coresystem.coresystem.entity.enums;
 
-import java.util.ArrayList;
-import java.util.List;
-
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+@Getter
+@AllArgsConstructor
 public enum DictionaryEnums {
     AccountStatus(1)
     ,AccountType(2)
@@ -13,11 +14,4 @@ public enum DictionaryEnums {
     ,ProductStatus(7)
     ,TransactionType(8);
     private final int value;
-    DictionaryEnums(int value) {
-        this.value = value;
-    }
-
-    public int getValue() {
-        return value;
-    }
 }

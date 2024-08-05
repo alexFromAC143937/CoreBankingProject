@@ -1,17 +1,14 @@
 package com.bank.coresystem.coresystem.entity.enums;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+
+@Getter
+@AllArgsConstructor
 public enum AccountStatus {
     ACTIVE(1),
     PENDING(2),
     BLOCKED(3),
     REMOVED(4);
     private final int value;
-
-    AccountStatus(int value) {
-        this.value = value;
-    }
-
-    public int getValue() {
-        return value;
-    }
 }

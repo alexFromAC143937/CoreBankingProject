@@ -1,8 +1,10 @@
 package com.bank.coresystem.coresystem.entity.enums;
 
-import java.util.ArrayList;
-import java.util.List;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
 
+@Getter
+@AllArgsConstructor
 public enum CurrencyType {
     EUR(1),
     USD(2),
@@ -11,12 +13,4 @@ public enum CurrencyType {
     BTC(5);
 
     private final int value;
-
-    CurrencyType(int value) {
-        this.value = value;
-    }
-
-    public int getValue() {
-        return value;
-    }
 }
