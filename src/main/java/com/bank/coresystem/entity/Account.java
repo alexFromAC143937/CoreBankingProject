@@ -44,9 +44,9 @@ public class Account {
     @ManyToOne()
     @JoinColumn(name = "client_id", referencedColumnName = "id")
     private Client client;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "debitAccountId")
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "debitAccountId")
     private Set<Transaction> debitTransactions;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "creditAccountId")
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "creditAccountId")
     private Set<Transaction> creditTransactions;
 
     @Override

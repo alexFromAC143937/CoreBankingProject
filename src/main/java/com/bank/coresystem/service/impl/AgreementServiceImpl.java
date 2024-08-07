@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 @Service
 @RequiredArgsConstructor
-public class AgreementImpl implements AgreementService {
+public class AgreementServiceImpl implements AgreementService {
     private final AgreementRepository agreementRepository;
     private final AgreementMapper agreementMapper;
     @Override

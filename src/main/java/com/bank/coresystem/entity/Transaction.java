@@ -12,6 +12,8 @@ import java.sql.Timestamp;
 import java.util.Objects;
 import java.util.UUID;
 
+import static jakarta.persistence.CascadeType.*;
+
 @Setter
 @Getter
 @Entity
@@ -44,7 +46,7 @@ public class Transaction {
             referencedColumnName = "id")
     private Account debitAccountId;
 
-    @ManyToOne()
+    @ManyToOne(cascade = {MERGE, PERSIST, REFRESH}, fetch = FetchType.LAZY)
     @JoinColumn(name = "credit_account_id",
             referencedColumnName = "id")
     private Account creditAccountId;
