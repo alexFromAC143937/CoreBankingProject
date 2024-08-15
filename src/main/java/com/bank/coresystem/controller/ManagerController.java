@@ -1,15 +1,17 @@
 package com.bank.coresystem.controller;
 
-import com.bank.coresystem.dto.ManagerCreateDto;
 import com.bank.coresystem.dto.ManagerDto;
-import com.bank.coresystem.dto.responceDto.IdIntegerDto;
+import com.bank.coresystem.dto.responseDto.IdIntegerDto;
 import com.bank.coresystem.service.ManagerService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@Validated
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/cbs/manager")
@@ -18,14 +20,14 @@ public class ManagerController{
 
     @PostMapping("/createManager")
     @ResponseStatus(HttpStatus.OK)
-    public ManagerDto create(@RequestBody ManagerCreateDto managerCreateDto){
-        return managerService.create(managerCreateDto);
+    public ManagerDto create(@Valid @RequestBody ManagerDto managerDto){
+        return managerService.create(managerDto);
     }
 
     @PutMapping(value = "/updateManager/{id}")
     @ResponseStatus(HttpStatus.OK)
-    public ManagerDto update(@PathVariable int id, @RequestBody ManagerCreateDto managerCreateDto){
-        return managerService.update(id, managerCreateDto);
+    public ManagerDto update(@PathVariable int id, @Valid @RequestBody ManagerDto managerDto){
+        return managerService.update(id, managerDto);
     }
 
     @DeleteMapping("/deleteManager/{id}")

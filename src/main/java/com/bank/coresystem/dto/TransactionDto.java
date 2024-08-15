@@ -1,6 +1,7 @@
 package com.bank.coresystem.dto;
 
 import com.bank.coresystem.entity.enums.TransactionType;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Value;
 
 import java.math.BigDecimal;
@@ -15,5 +16,6 @@ public class TransactionDto {
       TransactionType type;
       BigDecimal amount;
       String description;
+      @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
       Timestamp createdAt;
 }

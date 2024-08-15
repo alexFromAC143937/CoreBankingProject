@@ -6,4 +6,5 @@ import java.util.List;
 
 public interface ClientService {
     List<ClientDto> getClientAll();
+    List<ClientDto> getClientsWhereAgreementAmountMoreThen(int sumAgreement);
 }

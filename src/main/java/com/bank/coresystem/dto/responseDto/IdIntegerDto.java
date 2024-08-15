@@ -1,4 +1,4 @@
-package com.bank.coresystem.dto.responceDto;
+package com.bank.coresystem.dto.responseDto;
 
 import lombok.Value;
 

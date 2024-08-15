@@ -36,14 +36,24 @@ public class Account {
     @Column(name = "balance")
     private BigDecimal balance;
     @Column(name = "currency_code")
+    @Enumerated(EnumType.ORDINAL)
     private CurrencyType currency;
     @Column(name = "created_at")
     private Timestamp createdAt;
     @Column(name = "updated_at")
     private Timestamp updatedAt;
-    @ManyToOne()
-    @JoinColumn(name = "client_id", referencedColumnName = "id")
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "client_id")
     private Client client;
+
+    @OneToMany(
+            mappedBy = "account",
+            cascade = CascadeType.ALL,
+            orphanRemoval = true)
+
+    private Set<Agreement> agreements;
+
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "debitAccountId")
     private Set<Transaction> debitTransactions;
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "creditAccountId")

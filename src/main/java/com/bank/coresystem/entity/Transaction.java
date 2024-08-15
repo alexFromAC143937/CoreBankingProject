@@ -25,7 +25,6 @@ public class Transaction {
     @Id
     @Column(name = "id")
     @GeneratedValue(generator = "UUID", strategy = GenerationType.UUID)
-
     private UUID id;
 
     @Enumerated(EnumType.ORDINAL)

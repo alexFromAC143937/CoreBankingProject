@@ -19,4 +19,9 @@ public class ClientServiceImpl implements ClientService {
     public List<ClientDto> getClientAll() {
         return clientMapper.clientsToClientsDto(clientRepository.findAll());
     }
+
+    @Override
+    public List<ClientDto> getClientsWhereAgreementAmountMoreThen(int sumAgreement) {
+        return clientMapper.clientsToClientsDto(clientRepository.getAllWhereAgreementAmountMoreThen(sumAgreement));
+    }
 }

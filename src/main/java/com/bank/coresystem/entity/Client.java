@@ -8,7 +8,6 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.sql.Timestamp;
-import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 import java.util.UUID;
@@ -55,12 +54,14 @@ public class Client {
     private Timestamp updatedAt;
 
     @ManyToOne()
-    @JoinColumn(name = "manager_id",
-            referencedColumnName = "id")
+    @JoinColumn(name = "manager_id", referencedColumnName = "id")
     private Manager manager;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "client")
-    private Set<Account> accounts = new HashSet<>();
+    @OneToMany(
+            mappedBy = "client",
+            cascade = CascadeType.ALL,
+            orphanRemoval = true)
+    private Set<Account> accounts;
 
     @Override
     public boolean equals(Object o) {

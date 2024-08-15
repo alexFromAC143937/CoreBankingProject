@@ -9,6 +9,8 @@ import lombok.Setter;
 
 import java.math.BigDecimal;
 import java.sql.Timestamp;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 @Getter
@@ -37,7 +39,10 @@ public class Agreement {
     @Column(name = "updated_at")
     private Timestamp updatedAt;
 
-    @ManyToOne()
+    @Column(name = "sum")
+    private BigDecimal sum;
+
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "account_id",
             referencedColumnName = "id")
     private Account account;
